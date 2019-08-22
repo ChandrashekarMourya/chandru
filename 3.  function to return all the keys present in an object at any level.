@@ -1,0 +1,10 @@
+var input = { a: 5, b: { c: { d: 10 } } };
+var arry = [];
+console.log(getNodeValue(input, arry));
+function getNodeValue(inpt, arry) {
+  Object.keys(input).forEach(function (key) {
+    arry.push(key);
+    arry = getNodeValue(input[key], arry);
+  });
+  return arry;
+}
