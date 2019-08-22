@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace keyvaluepair
+{
+    public class Class
+    {
+        public class keyValuePair
+        {
+            public char key { get; set; }
+            public int value { get; set; }
+        }
+        public List<keyValuePair> assessment1()
+        {
+            string[] str = new string[] { "hello world", "hello world" };
+            var obj = new List<keyValuePair>();
+            foreach (var item in str)
+            {
+                var strData = item;
+                var dat = strData.GroupBy(c => c).Select(c => new { key = c.Key, value = c.Count() });
+                foreach (var itm in dat)
+                {
+                    int index = obj.FindIndex(x => x.key == itm.key);
+                    if (index == -1)
+                    {
+                        var mdl = new keyValuePair();
+                        mdl.key = itm.key;
+                        mdl.value = itm.value;
+                        obj.Add(mdl);
+                    }
+                    else
+                    {
+                        foreach (var list in obj.Where(r => r.key == itm.key))
+                        {
+                            list.value = list.value + itm.value;
+                        }
+                    }
+                }
+            }
+            return obj;
+        }
+    }
+}
