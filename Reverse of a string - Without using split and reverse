@@ -1,0 +1,42 @@
+string sentense = "Keep your face always toward the sunshine!";
+                char[] arr = sentense.ToCharArray();
+                int temp = 0;
+ 
+                for (int i = 0; i <= arr.Length - 1; i++)
+                {
+                    int count = temp;
+                    int num1 = 1;
+                    if (arr[i] == ' ' || i == arr.Length - 1)
+                    {
+                        if (i == arr.Length - 1)
+                        {
+                            for (int j = i; j >= temp; j--)
+                            {
+                                if (num1 <= (i - temp) / 2)
+                                {
+                                    char tempC = arr[count];
+                                    arr[count] = arr[j];
+                                    arr[j] = tempC;
+                                    count++;
+                                    num1++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int k = i - 1; k >= temp; k--)
+                            {
+                                if (num1 <= (i - temp) / 2)
+                                {
+                                    char tempC = arr[count];
+                                    arr[count] = arr[k];
+                                    arr[k] = tempC;
+                                    count++;
+                                    num1++;
+                                }
+                            }
+                        }
+                        temp = i + 1;
+                    }
+                }
+                var newLine = new string(arr);
