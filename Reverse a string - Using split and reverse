@@ -1,0 +1,2 @@
+string str = "It is raining everyday!";
+var reversedWords = string.Join(" ", str.Split(' ').Select(x => new String(x.Reverse().ToArray())));
