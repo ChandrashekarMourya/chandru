@@ -1,0 +1,28 @@
+1.	Let – is a variable declares locally.
+        - Scope of this is within a block only.
+Example : 
+function DisplayName(){
+	let name = “Chandru”;
+	console.log(name);	// returns Chandru
+	if(name == “Chandru”){
+let name = “Reeshma”;
+console.log(name);	  // returns Reeshma
+	}
+	console.log(name); 	// returns Chandru
+}
+
+2.	This – It refers to an object it belongs to current execution context.
+- this keyword acts as a global object (default).
+-	When there is an object property which are calling as a method then that object becomes this object.
+
+Example: 
+function bike(){
+	console.log(this.name);
+}
+var name = “Ninja”;
+var obj = { name: “Pulsar” };
+
+bike();		// “Ninja”
+bike.call(obj);	// “Pulsar”
+
+a. let is to declare a variable whereas this is to get / set the object variable.
